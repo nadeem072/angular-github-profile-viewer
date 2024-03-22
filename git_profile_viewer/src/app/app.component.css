@@ -1,0 +1,38 @@
+/* Adding the style for the haeder */ 
+
+header {
+    background-color: #333; /* Dark  color background  */
+    color: #fff; /* Light text color */
+    padding: 10px; /* Adding some padding */
+  }
+  
+  nav ul {
+    list-style-type: none; /* Removing the  default list styles */
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline; /* Displaying the  listitems inline */
+  }
+  
+  nav ul li a {
+    color: #fff; /* Light text color for links */
+    text-decoration: none; /* Remove default underline */
+    padding: 10px; /* Add padding to links */
+  }
+  
+  nav ul li a:hover {
+    background-color: #555; /* Darken background color on hover */
+  }
+
+  /* Adding the Style for the footer */
+
+  footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 10px; /* Add some padding */
+    position: fixed; /* Fix the footer at the bottom of the page */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom of the page */
+  }
