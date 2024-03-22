@@ -1,1 +1,27 @@
-<p>user-profile works!</p>
+<div *ngIf="userData">
+    <h1>{{ userData.name }}</h1>
+    <img [src]="userData.avatar_url" alt="User Avatar">
+    <p>{{ userData.bio }}</p>
+    <p>Number of repositories: {{ userData.public_repos }}</p>
+    
+    <div *ngIf="userData.public_repos > 0">
+      <h2>Repositories</h2>
+      <div class="repository-card" *ngFor="let repo of repositories">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="avatar"></div>
+            <mat-card-title>{{ repo.name }}</mat-card-title>
+            <mat-card-subtitle>{{ repo.description }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Topics: {{ repo.topics.join(', ') }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      <mat-paginator [length]="userData.public_repos"
+                     [pageSize]="pageSize"
+                     (page)="pageChanged($event)">
+      </mat-paginator>
+    </div>
+  </div>
