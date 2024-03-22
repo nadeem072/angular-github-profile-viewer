@@ -1,0 +1,70 @@
+.container {
+    text-align: center;
+  }
+  
+  .profile-info {
+    margin-bottom: 20px;
+  }
+  
+  .repositories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .repository-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .repository-name {
+    font-weight: bold;
+  }
+  
+  .repository-description {
+    margin-top: 10px;
+  }
+
+  /*styling for the paginator*/
+
+  .mat-paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .mat-paginator .mat-paginator-range-label {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .mat-paginator .mat-select-value {
+    color: #333;
+  }
+  
+  .mat-paginator .mat-select-arrow {
+    color: #333;
+  }
+  
+  .mat-paginator .mat-paginator-navigation {
+    margin: 0 10px;
+  }
+  
+  .mat-paginator .mat-paginator-navigation button {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mat-paginator .mat-paginator-navigation button:hover {
+    background-color: #ccc;
+  }
+  
+  .mat-paginator .mat-paginator-navigation button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

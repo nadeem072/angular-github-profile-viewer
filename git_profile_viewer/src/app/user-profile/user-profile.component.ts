@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GithubService } from '../github.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,6 +14,8 @@ export class UserProfileComponent implements OnInit {
   repositories: any[] = [];
   pageSize: number = 10;
   currentPage: number = 1;
+  error: string | null = null;
+  totalRepositories: number = 0;
 
   constructor(private route: ActivatedRoute, private githubService: GithubService) { }
 
@@ -24,18 +27,28 @@ export class UserProfileComponent implements OnInit {
   }
 
   fetchUserData() {
-    this.githubService.getUserData(this.username).subscribe((data: any) => {
+    this.githubService.getUserData(this.username).subscribe(
+      (data: any) => {
       this.userData = data;
       if (this.userData.public_repos > 0) {
         this.fetchRepositories();
       }
-    });
+    },
+    (error: HttpErrorResponse) => {
+      this.error = 'User not found. Please enter a valid GitHub username.';
+    }
+    );
   }
 
   fetchRepositories() {
     this.githubService.getUserRepositories(this.username, this.currentPage, this.pageSize).subscribe((repos: any[]) => {
       this.repositories = repos;
-    });
+      this.totalRepositories = this.repositories.length;
+    },
+    (error: HttpErrorResponse) => {
+      console.error('Error fetching user repositories:', error);
+    }
+    );
   }
 
   pageChanged(event: any) {
