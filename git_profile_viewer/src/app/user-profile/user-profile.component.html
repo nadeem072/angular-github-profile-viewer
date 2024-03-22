@@ -1,18 +1,22 @@
 <div class="container" *ngIf="!error">
+    <!--displaying the user data -->
     <div class="profile-info">
       <h2>{{ userData?.name }}</h2>
       <img [src]="userData?.avatar_url" alt="Avatar" width="100">
       <p>{{ userData?.bio }}</p>
       <p>Number of repositories: {{ userData?.public_repos }}</p>
     </div>
+
     <div class="repositories">
       <div class="repository-card" *ngFor="let repo of repositories">
+        <a [href]="repo.html_url" target="_blank" class="repository-link">
         <h3 class="repository-name">{{ repo.name }}</h3>
         <p class="repository-description">{{ repo.description }}</p>
         <p>Topics: {{ repo.topics?.join(', ') || 'No topics' }}</p>
+    </a>
       </div>
     </div>
-    <!--paginator for moving from one page to other -->>
+    <!--paginator for moving from one page to other -->
 
     <div class="paginator-container">
     <mat-paginator [length]= userData?.public_repos  [pageSize]="pageSize" [pageSizeOptions]="[10]" (page)="pageChanged($event)"></mat-paginator>

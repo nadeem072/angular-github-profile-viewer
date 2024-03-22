@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GithubService {
-  private apiUrl = 'https://api.github.com';
-  private accessToken = 'YOUR_PERSONAL_ACCESS_TOKEN';
+  
   constructor(private http: HttpClient) { }
 
   getUserData(username: string): Observable<any> {
