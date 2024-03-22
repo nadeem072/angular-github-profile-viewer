@@ -41,18 +41,19 @@ export class UserProfileComponent implements OnInit {
   }
 
   fetchRepositories() {
-    this.githubService.getUserRepositories(this.username, this.currentPage, this.pageSize).subscribe((repos: any[]) => {
-      this.repositories = repos;
-      this.totalRepositories = this.repositories.length;
-    },
-    (error: HttpErrorResponse) => {
-      console.error('Error fetching user repositories:', error);
-    }
+    this.githubService.getUserRepositories(this.username, this.currentPage, this.pageSize).subscribe(
+      (data: any[]) => {
+        this.repositories = data;
+        this.totalRepositories = data.length; // Update totalRepositories count
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error fetching user repositories:', error);
+      }
     );
   }
 
   pageChanged(event: any) {
-    this.currentPage = event.pageIndex + 1;
+    this.currentPage = event.pageIndex ;
     this.fetchRepositories();
   }
 }

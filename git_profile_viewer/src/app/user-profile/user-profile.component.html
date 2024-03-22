@@ -13,8 +13,11 @@
       </div>
     </div>
     <!--paginator for moving from one page to other -->>
-    <mat-paginator [length]="totalRepositories" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageChanged($event)"></mat-paginator>
-  </div>
+
+    <div class="paginator-container">
+    <mat-paginator [length]= userData?.public_repos  [pageSize]="pageSize" [pageSizeOptions]="[10]" (page)="pageChanged($event)"></mat-paginator>
+</div>
+</div>
   
   <div class="container" *ngIf="error">
     <p>{{ error }}</p>

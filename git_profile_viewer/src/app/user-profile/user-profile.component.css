@@ -68,3 +68,9 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  .paginator-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }

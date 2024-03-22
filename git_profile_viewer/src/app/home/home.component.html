@@ -2,7 +2,9 @@
     <h2>Welcome to GitHub Profile Viewer!</h2>
     <p>Enter a GitHub username to view profile:</p>
     <input type="text" [(ngModel)]="username" placeholder="Enter username">
-    <button (click)="viewProfile()">View Profile</button>
+    <form (submit)="viewProfile()">
+      <button type="submit">View Profile</button>
+    </form>
   </div>
 
   
