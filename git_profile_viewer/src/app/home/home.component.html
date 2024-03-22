@@ -1,4 +1,6 @@
-<div>
+<div style="text-align: center;">
+  <div style="width: 500px; margin: 0 auto; background: #756a8e; color: #fff;"><br><br>
+  
     <h2>Welcome to GitHub Profile Viewer!</h2>
     <p>Enter a GitHub username to view profile:</p>
     <input type="text" [(ngModel)]="username" placeholder="Enter username">
@@ -6,7 +8,10 @@
     <!-- submit button -->
     <form (submit)="viewProfile()">
       <button type="submit" (keyup.enter)="viewProfile()">View Profile</button>
+      <br><br><br>
     </form>
   </div>
+</div>
+
 
   

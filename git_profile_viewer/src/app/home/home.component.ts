@@ -17,4 +17,10 @@ export class HomeComponent {
       this.router.navigate(['/profile', this.username]);
     }
   }
+  searchUser() {
+    if (this.username.trim() !== '') {
+      this.router.navigate(['/user-profile', this.username]);
+    }
+  }
+
 }
